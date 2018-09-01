@@ -54,7 +54,7 @@ func TestGetAccount(t *testing.T) {
 	})
 
 	Convey("Given a HTTP request for /accounts/456", t, func() {
-		req := httptest.NewRequest("GET", "/accounts/123", nil)
+		req := httptest.NewRequest("GET", "/accounts/456", nil)
 		resp := httptest.NewRecorder()
 
 		Convey("When the request is handled by the Router", func() {
