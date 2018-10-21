@@ -4,7 +4,9 @@
 *.dll
 *.so
 *.dylib
-*.accountservice-linux-amd64
+
+accountservice-linux-amd64
+accounts.db
 
 # Test binary, build with `go test -c`
 *.test
