@@ -1,8 +1,8 @@
 package main
 
 import (
-	"accountservice/service"
 	"accountservice/dbclient"
+	"accountservice/service"
 	"fmt"
 )
 
@@ -10,7 +10,7 @@ var appName = "accountservice"
 
 func main() {
 	fmt.Printf("Starting %v\n", appName)
-    initializeBoltClient()
+	initializeBoltClient()
 	service.StartWebServer("6767")
 }
 

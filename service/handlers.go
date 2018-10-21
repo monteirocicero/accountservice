@@ -27,3 +27,26 @@ func GetAccount(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write(data)
 }
+
+func HealthCheck(w http.ResponseWriter, r *http.Request) {
+	dbUp := DBClient.Check()
+
+	if dbUp {
+		data, _ := json.Marshal(healthCheckResponse{Status: "UP"})
+		writeJsonResponse(w, http.StatusOK, data)
+	} else {
+		data, _ := json.Marshal(healthCheckResponse{Status: "Database unaccessible"})
+		writeJsonResponse(w, http.StatusServiceUnavailable, data)
+	}
+}
+
+func writeJsonResponse(w http.ResponseWriter, status int, data []byte) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Length", strconv.Itoa(len(data)))
+	w.WriteHeader(status)
+	w.Write(data)
+}
+
+type healthCheckResponse struct {
+	Status string `json:"status"`
+}
