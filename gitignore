@@ -4,9 +4,13 @@
 *.dll
 *.so
 *.dylib
+.idea*
 
+# work files
 accountservice-linux-amd64
 accounts.db
+accountservice
+healthchecker-linux-amd64
 
 # Test binary, build with `go test -c`
 *.test

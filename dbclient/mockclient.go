@@ -16,11 +16,11 @@ func (m *MockBoltClient) QueryAccount(accountId string) (model.Account, error) {
 }
 
 func (m *MockBoltClient) OpenBoltDb() {
-	// nothing
+	// Does nothing
 }
 
 func (m *MockBoltClient) Seed() {
-
+	// Does nothing
 }
 
 func (m *MockBoltClient) Check() bool {

@@ -108,6 +108,6 @@ func getIP() string {
 			}
 		}
 	}
-	panic("Unable to determine local IP adress (non loopback). Exiting.")
+	panic("Unable to determine local IP address (non loopback). Exiting.")
 
 }
