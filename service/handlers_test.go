@@ -60,7 +60,7 @@ func TestGetAccount(t *testing.T) {
 				json.Unmarshal(resp.Body.Bytes(), &account)
 				So(account.Id, ShouldEqual, "123")
 				So(account.Name, ShouldEqual, "Person_123")
-				//So(account.Quote.Text, ShouldEqual, "May the source be with you. Always.")
+				So(account.Quote.Text, ShouldEqual, "May the source be with you. Always.")
 			})
 		})
 

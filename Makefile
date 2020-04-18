@@ -14,5 +14,5 @@ run: $(GOBUILD) -o $(BINARY_NAME) -v ./... ./$(BINARY_NAME)
 
 # Cross compilation
 build-linux: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_UNIX) -v
-docker-build: docker build -t someprefix/accountservice .
-docker-run: docker run --rm someprefix/accountservice:latest
+docker-build: docker build -t monteirocicero/accountservice-test:latest
+docker-run: docker run --rm accountservice/accountservice:latest

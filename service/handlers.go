@@ -31,6 +31,11 @@ func GetAccount(w http.ResponseWriter, r *http.Request) {
 
 	account.ServedBy = getIP()
 
+	quote, err := getQuote()
+	if err == nil {
+		account.Quote = quote
+	}
+
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		return
