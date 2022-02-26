@@ -7,7 +7,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/boltdb/bolt"
+	bolt "go.etcd.io/bbolt"
 )
 
 type IBoltClient interface {
@@ -22,6 +22,8 @@ type BoltClient struct {
 }
 
 func (bc *BoltClient) QueryAccount(accountId string) (model.Account, error) {
+	fmt.Printf("QueryAccount %v\n", accountId)
+
 	account := model.Account{}
 
 	err := bc.boltDB.View(func(tx *bolt.Tx) error {
