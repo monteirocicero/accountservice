@@ -29,11 +29,11 @@ func GetAccount(w http.ResponseWriter, r *http.Request) {
 
 	account, err := DBClient.QueryAccount(accountId)
 
-	//account.ServedBy = getIP()
+	account.ServedBy = getIP()
 
-	//quote, err := getQuote()
+	quote, err := getQuote()
 	if err == nil {
-		//account.Quote = quote
+		account.Quote = quote
 	}
 
 	if err != nil {
