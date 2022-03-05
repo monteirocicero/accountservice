@@ -33,7 +33,6 @@ func (bc *BoltClient) QueryAccount(accountId string) (model.Account, error) {
 		if accountBytes == nil {
 			return fmt.Errorf("No account found for " + accountId)
 		}
-
 		json.Unmarshal(accountBytes, &account)
 
 		return nil

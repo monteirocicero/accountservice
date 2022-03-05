@@ -1,6 +1,6 @@
 FROM iron/base
-
 EXPOSE 6767
+
 ADD accountservice-linux-amd64 /
 ADD healthchecker-linux-amd64 /
 
