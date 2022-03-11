@@ -21,9 +21,11 @@ echo 'Docker tagging and push to registry'
 docker build -t monteirocicero/accountservice accountservice/
 docker tag monteirocicero/accountservice localhost:5000/my-accountservice
 docker push localhost:5000/my-accountservice
-docker image remove localhost:5000/my-accountservice
+#docker image remove localhost:5000/my-accountservice
 
 echo 'Deploy on Swarm'
 
+docker service rm quotes-service
+docker service create --name=quotes-service --replicas=1 --network=my_network eriklupander/quotes-service
 docker service rm accountservice
 docker service create --name=accountservice --replicas=1 --network=my_network -p=6767:6767 localhost:5000/my-accountservice
